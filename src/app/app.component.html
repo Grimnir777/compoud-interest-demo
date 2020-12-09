@@ -1,4 +1,115 @@
-<h1>Hello world !</h1>
+<!--<div class="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center px-5 py-5">-->
+<!--  <div class="w-full mx-auto rounded-lg bg-white shadow-lg px-5 pt-5 pb-10 text-gray-800" style="max-width: 500px">-->
+<!--    <div class="w-full mb-10">-->
+<!--      <div class="text-3xl text-indigo-500 text-left leading-tight h-3">“</div>-->
+<!--      <p class="text-sm text-gray-600 text-center px-5">Compound interest is the eighth wonder of the world. He who understands it, earns it ... he who doesn't ... pays it.</p>-->
+<!--      <div class="text-3xl text-indigo-500 text-right leading-tight h-3 -mt-3">”</div>-->
+<!--    </div>-->
+<!--    <div class="w-full">-->
+<!--      <p class="text-md text-indigo-500 font-bold text-center">Albert Einstein</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 
 
+
+
+
+<!-- min-w-screen min-h-screen flex items-center justify-center px-5 py-5 bg-gray-100-->
+<!--<body class="container mx-auto bg-gray-100">-->
+
+<!--<div class="grid-cols-1 bg-white my-8 mx-8">-->
+<!--  <h1>Hello world</h1>-->
+<!--</div>-->
+<!--<div class="grid-cols-2 bg-white my-8 mx-8">-->
+<!--  <h1>Hello world 2</h1>-->
+<!--</div>-->
+
+<!--<div class="mx-4 card bg-white max-w-md p-10 md:rounded-lg my-8 mx-auto">-->
+<!--  <div class="title">-->
+<!--    <h1 class="font-bold text-center">Report a bug or request a feature</h1>-->
+<!--  </div>-->
+
+<!--  <div class="form mt-4">-->
+<!--    <div class="flex flex-col text-sm">-->
+<!--      <label for="title" class="font-bold mb-2">Title</label>-->
+<!--      <input class=" appearance-none border border-gray-200 p-2 focus:outline-none focus:border-gray-500" type="text" placeholder="Enter a title">-->
+<!--    </div>-->
+
+<!--    <div class="text-sm flex flex-col">-->
+<!--      <label for="description" class="font-bold mt-4 mb-2">Description</label>-->
+<!--      <textarea class=" appearance-none w-full border border-gray-200 p-2 h-40 focus:outline-none focus:border-gray-500"  placeholder="Enter your description"></textarea>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="submit">-->
+<!--    <button type="submit" class=" w-full bg-blue-600 shadow-lg text-white px-4 py-2 hover:bg-blue-700 mt-8 text-center font-semibold focus:outline-none ">Submit</button>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+
+
+<!--</body>-->
+
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 my-6 px-4 md:px-6 lg:px-8">
+  <div class="max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg">
+    <div class="py-2">
+      <div class="title">
+        <h1 class="font-bold text-center">Compound interest calculator</h1>
+      </div>
+
+      <form [formGroup]="dataForm" class="grid grid-cols-2 gap-6 my-6 px-4 md:px-6 lg:px-8">
+        <div class="flex flex-col text-sm">
+          <label for="years" class="font-bold mb-2">Duration in years</label>
+          <input
+            id="years"
+            formControlName="numberOfYears"
+            class=" appearance-none border border-gray-200 p-2 focus:outline-none focus:border-gray-500"
+            type="number"
+          >
+        </div>
+
+        <div class="flex flex-col text-sm">
+          <label for="starting-amount" class="font-bold mb-2">Starting amount</label>
+          <input
+            id="starting-amount"
+            formControlName="startingAmount"
+            class=" appearance-none border border-gray-200 p-2 focus:outline-none focus:border-gray-500"
+            type="number"
+          >
+        </div>
+
+        <div class="flex flex-col text-sm">
+          <label for="monthly-adding" class="font-bold mb-2">Monthly adding</label>
+          <input
+            id="monthly-adding"
+            formControlName="monthlyAddingAmount"
+            class=" appearance-none border border-gray-200 p-2 focus:outline-none focus:border-gray-500"
+            type="text"
+          >
+        </div>
+        <div class="flex flex-col text-sm">
+          <label for="performance" class="font-bold mb-2">Performance</label>
+          <input
+            id="performance"
+            formControlName="performance"
+            class=" appearance-none border border-gray-200 p-2 focus:outline-none focus:border-gray-500"
+            type="text"
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg">
+    <app-line-chart
+      [numberOfYears]="dataForm.get('numberOfYears').value"
+      [monthlyAddingAmount]="dataForm.get('monthlyAddingAmount').value"
+      [startingAmount]="dataForm.get('startingAmount').value"
+      [performance]="dataForm.get('performance').value"
+    ></app-line-chart>
+  </div>
+</div>
 <router-outlet></router-outlet>
